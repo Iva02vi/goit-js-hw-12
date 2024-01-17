@@ -93,7 +93,10 @@ const renderImages = () => fetchImages()
         };
     })
     .catch(error => {
-        console.log(error);
+        iziToast.error({
+            message: `${error}`,
+            position: 'topRight',
+        });
     })
     .finally(() => {
         loader.style.display = 'none';
@@ -121,7 +124,10 @@ const endCheck = () => {
             }
         })
         .catch(error => {
-            console.log(error);
+            iziToast.error({
+                message: `${error}`,
+                position: 'topRight',
+            });
         });
 }
 
@@ -130,7 +136,6 @@ const scrollGallery = async () => {
     const imgHeight = imgItem.getBoundingClientRect().height;
     window.scrollBy({
         top: imgHeight * 2,
-        left: 100,
         behavior: "smooth",
     });
 };
